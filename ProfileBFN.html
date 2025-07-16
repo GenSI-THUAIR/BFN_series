@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description"
+        content="ProfileBFN: Steering Protein Family Design through Profile Bayesian Flow" />
+    <meta name="keywords, Protein Family Generation, Homologous Protein Generation, Protein Design, Bayesian Flow"
+        content="ProfileBFN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ProfileBFN: Steering Protein Family Design through Profile Bayesian Flow</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/bulma.min.css" />
+    <link rel="stylesheet" href="./css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./css/fontawesome.all.min.css" />
+    <!-- <link rel="stylesheet" href="./css/fontawesome_6_7_2.all.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/enhanced-styles.css" />
+    <link rel="stylesheet" href="./css/final-enhancements.css" />
+    <link rel="stylesheet" href="./css/navbar-fix.css" />
+    <link rel="stylesheet" href="./css/navbar-alignment-fix.css" />
+    <link rel="stylesheet" href="./css/overlap-fix.css" />
+    <link rel="stylesheet" href="./css/spacing-fix.css" />
+    <link rel="stylesheet" href="./css/author-affiliation-styles.css" />
+    <link rel="icon" href="./assets/gensi_logo_black_topdown.png" type="image/png" />
+    <!-- add page icon at 64 x 64-->
+    <!-- <link rel="icon" type="image/png" href="./assets/re.png" sizes="256x256" /> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/fontawesome.all.min.js"></script>
+    <script src="./js/bulma-carousel.min.js"></script>
+    <script src="./js/bulma-slider.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/enhanced-animations.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .menu {
+          position: fixed;
+          top: 20rem;
+          left: 8rem;
+          width: 10rem;
+        }
+        .main-content {
+          margin-left: 10rem;
+          padding-top: 20rem;
+        }
+    </style>
+
+    <style>
+        @media screen and (max-width: 768px) {
+        .menu {
+            display: none;
+        }
+        }
+    </style>
+</head>
+
+
+    
+
+
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="has-text-centered">
+                    <h1 class="publication-title">
+                        <em class="dnerf">ProfileBFN</em>: Steering Protein Family Design through Profile Bayesian Flow
+                    </h1>
+                    <div class="publication-authors">
+                        <span class="author-block"><a href="jjgongjj@gmail.com">Jingjing Gong</a><sup>1,†</sup></span>
+                        <span class="author-block"><a href="yupei.wp@gmail.com">Yu Pei</a><sup>1,†</sup></span>
+                        <span class="author-block"><a href="longlonglongguy@gmail.com">Siyu Long</a><sup>1,†</sup></span>
+                        <span class="author-block"><a href="yxsong0816@gmail.com">Yuxuan Song</a><sup>1,†</sup></span>
+                        <span class="author-block"><a >Zhe Zhang</a><sup>1</sup></span>
+                        <span class="author-block"><a >Wenhao Huang</a><sup>1</sup></span>
+                        <span class="author-block"><a >Ziyao Cao</a><sup>1</sup></span>
+                        <span class="author-block"><a >Shuyi Zhang</a><sup>2</sup></span>
+                        <span class="author-block"><a href="zhouhao@air.tsinghua.edu.cn">Hao Zhou</a><sup>1</sup></span><br>
+                        <span class="author-block"><a href="maweiying@air.tsinghua.edu.cn">Wei-Ying Ma</a><sup>1</sup></span>
+                    </div>
+                    <div class="publication-affiliations">
+                        <span class="affiliation-block"><sup>1</sup>Institute of AI Industry Research (AIR), Tsinghua University</span><br>
+                        <span class="affiliation-block"><sup>2</sup>School of Pharmaceutical Sciences, Tsinghua University</span>
+                        <div class="affiliation-note">†Equal Contribution</div>
+                        <div class="affiliation-note">Contact: <a href="zhouhao@air.tsinghua.edu.cn">zhouhao@air.tsinghua.edu.cn</a></div>
+                    </div>
+                    <div class="publication-links">
+                        <span class="link-block">
+                            <a href="https://arxiv.org/abs/2502.07671" class="external-link button is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                            </a>
+                        </span>
+                        <span class="link-block">
+                            <a href="https://github.com/AlgoMole/ProfileBFN-pro" class="external-link button is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-database"></i>
+                                </span>
+                                <span>Code</span>
+                            </a>
+                        </span>
+                        <span class="link-block">
+                            <a href="https://huggingface.co/GenSI/ProfileBFN_650M" class="external-link button is-dark">
+                                <span class="icon">
+                                    🤗
+                                </span>
+                                <span>Model</span>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="menu" >
+        <p class="menu-label">ProfileBFN</p>
+        <ul class="menu-list">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#analysis">Analysis</a></li>
+            <li><a href="#citation">Citation</a></li>
+        </ul>
+    </aside>
+
+    
+    
+
+    
+    <div class="container">
+        
+        <!-- Main content -->
+
+        
+
+        
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="section navigation">
+                <div class="container">    
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#https://www.gensi-thuair.com/">
+                            <img src="./assets/gensi_new_logo.png"/>
+                        </a>
+                        <!-- <img src="./assets/gensi_new_logo.png"/> -->
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="index.html">Home</a>
+                            <a class="navbar-item" href="GeoBFN.html">GeoBFN</a>
+                            <a class="navbar-item" href="MolCRAFT-Series.html">MolCRAFT-Series</a>
+                            <a class="navbar-item" href="CrysBFN.html">CrysBFN</a>
+                            <a class="navbar-item" href="ProfileBFN.html">ProfileBFN</a>
+                            <a class="navbar-item" href="GraphBFN.html">GraphBFN</a>
+                            <!-- <a class="navbar-item" href="Others.html">Others</a> -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+        
+            <section class="section project-section" id="introduction">
+                <div class="container">
+                    <h2 class="title is-3">Introduction</h2>
+                
+                    <div class="content">
+                        <img src="./assets/ProfileBFN/ProfileBFN-main.png">
+                        <p>
+                        <strong>ProfileBFN architecture</strong> 
+                        </p>
+                    </div>
+            
+                    <div class="content">
+                        <p>
+                            To address the aboveconcernandbringafreshperspective to the protein family generative modeling,
+                            we propose the <strong>Profile Bayesian Flow Networks (ProfileBFN)</strong>, which achieves effective yet efficient
+                            Protein Family Design by: (i) proposing to use MSA profile (the distribution of MSA) instead of
+                            MSA for probabilistic generative modeling, which avoids the heavily direct training of MSA data.2
+                            (ii) <strong>ProfileBFN</strong> extends the conventional discrete Bayesian Flow Network (BFN) from an MSA
+                            profile perspective. We formally re-derive the new Bayesian flow and loss terms, tailoring it from
+                            the perspective of protein family modeling. (iii) <strong>ProfileBFN</strong> could escape the heavy construction of
+                            large-scale MSA data by training on single protein sequences. Thanks to the mathematical nature of
+                            the <strong>ProfileBFN</strong>, wecould generalize the one-hot representation of single sequences as a degenerative
+                            profile, which enables the <strong>ProfileBFN</strong> to be flexible for both single sequence and multiple sequence
+                            profiles as inputs.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+          
+
+
+            <section class="section" id="results">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">⚖️ Results: Protein Design</h2>
+                            <div class="content">
+                                <h4 > <strong>ProfileBFN Leads in Family Protein Generation</strong> </h4>
+                                <img src="./assets/ProfileBFN/main_results.png" alt="MY ALT TEXT"/>
+                                <p>
+                                    ProfileBFN shows a considerable advantage, with its performance metrics even surpassing those of MSA obtained through search methods. This finding suggests that the sequences generated by ProfileBFN effectively capture the structural characteristics of the family.</p>
+
+                                <h4 > <strong>ProfileBFN Generates Functional Proteins</strong> </h4>
+                                <figure class="image is-inline-block" style="max-width: 80%;">
+                                <img src="./assets/ProfileBFN/enzyme_results.png" alt="MY ALT TEXT"/>
+                                </figure>
+
+                                <p>
+                                    Enzymes generated by <strong>ProfileBFN</strong> are considered more likely to possess the corresponding functions. From a functional perspective, <strong>ProfileBFN</strong> provides the best capability for generating family proteins. </p>
+                                
+                                <h4 > <strong>ProfileBFN enhances performance of structure prediction</strong> </h4>
+                                <figure class="image is-inline-block" style="max-width: 80%;">
+                                <img src="./assets/ProfileBFN/msa_results.png" alt="MY ALT TEXT"/>
+                                </figure>   
+                                
+                                <p>
+                                    Using ProfileBFN to enhance AF2 performance by adding virtual MSAs, the results show
+                                    that ProfileBFN is capable of generating more appropriate MSAs for models such as AF2 compared
+                                    to the ground truth searched MSA and MSAGPT.
+                                </p>
+                 
+        
+                        
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            
+            <section class="section" id="analysis">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">Analysis</h2>
+                            <div class="content">
+                                <h4 > <strong> Sampling Process Reflects Protein Conservation</strong> </h4>
+                                <img src="./assets/ProfileBFN/conserve_region.png" alt="MY ALT TEXT"/>
+                                <p>
+                                    There's high consistency between the variation intensity at different sites during the sampling process and
+                                    the conserved protein sites identified by MSA analysis. This indicates that ProfileBFN successfully captures the variability and 
+                                    conservation of different sites on the protein, and during the sampling process, it reflects this by controlling the extent of 
+                                    amino acid variation at these sites.
+                                </p>
+        
+
+                                <h4 > <strong> Higher Sampling Efficiency</strong> </h4>
+                                <figure class="image is-inline-block" style="max-width: 80%;">
+                                    <img src="./assets/ProfileBFN/sampling_efficiency.png" alt="MY ALT TEXT"/>
+                                </figure>
+                                <p>
+                                    ProfileBFN consistently demonstrates higher sampling efficiency compared to our main competitor, DPLM. Moreover, this advantage becomes
+                                        more pronounced as the protein length increases. Compared to ESM-2, ProfileBFN incurs a slight loss in efficiency.  However, this gap narrows as the 
+                                        model size and protein length decrease.
+                                </p>
+
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section" id="citation">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">📝 Citation</h2>
+                            <div class="content">
+                                <p>If you find this work useful, please cite our paper:</p>
+                                <pre><code class="latex">
+            @article{gong2025steering,
+                title={Steering Protein Family Design through Profile Bayesian Flow},
+                author={Gong, Jingjing and Pei, Yu and Long, Siyu and Song, Yuxuan and Zhang, Zhe and Huang, Wenhao and Cao, Ziyao and Zhang, Shuyi and Zhou, Hao and Ma, Wei-Ying},
+                journal={arXiv preprint arXiv:2502.07671},
+                year={2025}
+            }
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          
+          <!-- … other sections … -->
+        </div>
+  </body>
+
+
+
+
+</html>

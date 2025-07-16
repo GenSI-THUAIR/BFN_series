@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description"
+        content="GraphBFN: Smooth Interpolation for Improved Discrete Graph Generative Models" />
+    <meta name="keywords, Protein Family Generation, Homologous Protein Generation, Protein Design, Bayesian Flow"
+        content="GraphBFN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GraphBFN: Smooth Interpolation for Improved Discrete Graph Generative Models</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/bulma.min.css" />
+    <link rel="stylesheet" href="./css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./css/fontawesome.all.min.css" />
+    <!-- <link rel="stylesheet" href="./css/fontawesome_6_7_2.all.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/enhanced-styles.css" />
+    <link rel="stylesheet" href="./css/final-enhancements.css" />
+    <link rel="stylesheet" href="./css/navbar-fix.css" />
+    <link rel="stylesheet" href="./css/navbar-alignment-fix.css" />
+    <link rel="stylesheet" href="./css/overlap-fix.css" />
+    <link rel="stylesheet" href="./css/spacing-fix.css" />
+    <link rel="stylesheet" href="./css/author-affiliation-styles.css" />
+    <link rel="icon" href="./assets/gensi_logo_black_topdown.png" type="image/png" />
+    <!-- add page icon at 64 x 64-->
+    <!-- <link rel="icon" type="image/png" href="./assets/re.png" sizes="256x256" /> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/fontawesome.all.min.js"></script>
+    <script src="./js/bulma-carousel.min.js"></script>
+    <script src="./js/bulma-slider.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/enhanced-animations.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .menu {
+          position: fixed;
+          top: 20rem;
+          left: 8rem;
+          width: 10rem;
+        }
+        .main-content {
+          margin-left: 10rem;
+          padding-top: 20rem;
+        }
+    </style>
+
+    <style>
+        @media screen and (max-width: 768px) {
+        .menu {
+            display: none;
+        }
+        }
+    </style>
+</head>
+
+
+    
+
+
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="has-text-centered">
+                    <h1 class="publication-title">
+                        <em class="dnerf">GraphBFN</em>: Smooth Interpolation for Improved Discrete Graph Generative Models
+                    </h1>
+                    <div class="publication-authors">
+                        <span class="author-block"><a href="yxsong0816@gmail.com">Yuxuan Song</a><sup>1,†</sup></span>
+                        <span class="author-block"><a >Juntong Shi</a><sup>1,2,†</sup></span>
+                        <span class="author-block"><a href="jjgongjj@gmail.com">Jingjing Gong</a><sup>1</sup></span>
+                        <span class="author-block"><a >Minkai Xu</a><sup>2</sup></span>
+                        <span class="author-block"><a >Stefano Ermon</a><sup>2</sup></span>
+                        <span class="author-block"><a href="zhouhao@air.tsinghua.edu.cn">Hao Zhou</a><sup>1</sup></span><br>
+                        <span class="author-block"><a href="maweiying@air.tsinghua.edu.cn">Wei-Ying Ma</a><sup>1</sup></span>
+                    </div>
+                    <div class="publication-affiliations">
+                        <span class="affiliation-block"><sup>1</sup>Institute of AI Industry Research (AIR), Tsinghua University</span><br>
+                        <span class="affiliation-block"><sup>2</sup>Computer Science, Stanford University</span>
+                        <div class="affiliation-note">†Equal Contribution</div>
+                        <div class="affiliation-note">Contact: <a href="zhouhao@air.tsinghua.edu.cn">zhouhao@air.tsinghua.edu</a></div>
+                    </div>
+                    <div class="publication-links">
+                        <!-- <span class="link-block">
+                            <a href="https://arxiv.org/abs/2502.07671" class="external-link button is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                            </a>
+                        </span> -->
+                        <span class="link-block">
+                            <a href="https://github.com/AlgoMole/GraphBFN" class="external-link button is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-database"></i>
+                                </span>
+                                <span>Code</span>
+                            </a>
+                        </span>
+                        <!-- <span class="link-block">
+                            <a href="https://huggingface.co/GenSI/ProfileBFN_650M" class="external-link button is-dark">
+                                <span class="icon">
+                                    🤗
+                                </span>
+                                <span>Model</span>
+                            </a>
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="menu" >
+        <p class="menu-label">GraphBFN</p>
+        <ul class="menu-list">
+            <li><a href="#introduction">Introduction</a></li>
+            <!-- <li><a href="#eval">Evaluation</a></li>
+            <li><a href="#model">Model</a></li>
+            <li><a href="#citation">Citation</a></li> -->
+        </ul>
+    </aside>
+
+    
+    
+
+    
+    <div class="container">
+        
+        <!-- Main content -->
+
+        
+
+        
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="section navigation">
+                <div class="container">    
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#https://www.gensi-thuair.com/">
+                            <img src="./assets/gensi_new_logo.png"/>
+                        </a>
+                        <!-- <img src="./assets/gensi_new_logo.png"/> -->
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="index.html">Home</a>
+                            <a class="navbar-item" href="GeoBFN.html">GeoBFN</a>
+                            <a class="navbar-item" href="MolCRAFT-Series.html">MolCRAFT-Series</a>
+                            <a class="navbar-item" href="CrysBFN.html">CrysBFN</a>
+                            <a class="navbar-item" href="ProfileBFN.html">ProfileBFN</a>
+                            <a class="navbar-item" href="GraphBFN.html">GraphBFN</a>
+                            <!-- <a class="navbar-item" href="Others.html">Others</a> -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+        
+            <section class="section project-section" id="introduction">
+                <div class="container"> 
+                    <h2 class="title is-3">Introduction</h2>
+            
+                    <div class="content">
+                        <p>
+                            Though typically represented by the discrete node and edge attributes, the graph topological information can be sufficiently captured by the graph spectrum in a continuous space. It is believed that incorporating the continuity of graph topological information into the generative process design could establish a superior paradigm for graph generative modeling. Motivated by such prior and recent advancements in the generative paradigm, we propose Graph Bayesian Flow Networks (GraphBFN) in this paper, a principled generative framework that designs an alternative generative process emphasizing the dynamics of topological information. Unlike recent discrete-diffusion-based methods, GraphBFNemploys the continuous counts derived from sampling infinite times from a categorical distribution as latent to facilitate a smooth decomposition of topological information, demonstrating enhanced effectiveness. To effectively realize the concept, we further develop an advanced sampling strategy and new time-scheduling techniques to overcome practical barriers and boost performance. Through extensive experimental validation on both generic graph and molecular graph generation tasks, GraphBFN could consistently achieve superior or competitive performance with significantly higher training and sampling efficiency.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+          
+<!-- 
+
+            <section class="section" id="eval">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">⚖️ Evaluation</h2>
+                            <div class="content">
+                                <p>We evaluate ProfileBFN on a multitude of benchmarks and find that ProfileBFN has the following
+                                    impressive advantages: (i) ProfileBFN ensures structural conservation while providing the most
+                                    diverse and novel family protein generation results. For characterizing family structural features,
+                                    sequences generated by ProfileBFN even surpass the MSA search relied upon by AlphaFold2. (ii)
+                                    In the evaluation of generating functional enzyme proteins, compared to previous advanced methods,
+                                    ProfileBFN is more likely than the previous approach to have the corresponding function, offering
+                                    better odds of generating diverse proteins with the desired functionality. (iii) In the aspect of protein
+                                    representation, ProfileBFN outperforms all PLMs under the same parameter scale, demonstrating its
+                                    profound understanding of proteins.</p>
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            
+            <section class="section" id="model">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">🤖 Enigmata-Model: The Training Recipe</h2>
+                            <div class="content">
+                                <p>Our training methodology follows a two-stage process designed to systematically build reasoning abilities: 
+                                    (1) rejection fine-tuning to establish foundational reasoning patterns, and 
+                                    (2) multi-task RL to develop general reasoning skills that transfer across diverse problem domains.</p>
+                            </div>
+                            <div class="content">
+                                <div
+                                style="background-color: #f8fafc; border-radius: 12px; border-left: 6px solid #3a76ed; padding: 1.2rem; margin-bottom: 1.5rem;">
+                                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                                        <div style="display: flex; align-items: flex-start; gap: 0.8rem;"> 
+                                            <div
+                                                style="background-color: #3a76ed; color: white; padding: 0.4rem; border-radius: 50%; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; min-width: 2rem; height: 2rem;">
+                                                1
+                                            </div>
+                                            <div>
+                                                <p style="margin: 0; line-height: 1.4;"><strong>Rejection Fine-tuning:</strong>
+                                                    This initial stage focuses on building foundational reasoning by fine-tuning the model with high-quality solutions from a balanced mix of math and puzzle problems, including ARC-AGI.</p>
+                                            </div>
+                                        </div>
+                                
+                                        <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                                            <div
+                                                style="background-color: #3a76ed; color: white; padding: 0.4rem; border-radius: 50%; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; min-width: 2rem; height: 2rem;">
+                                                2
+                                            </div>
+                                            <div>
+                                            <p style="margin: 0; line-height: 1.4;"><strong>RL with Verifiable Puzzles:</strong> The model then undergoes reinforcement learning using VC-PPO, where an automated verifier for puzzles provides immediate rewards, enabling an automatic RL pipeline for puzzle reasoning.</p>
+                                            </div>
+                                        </div>
+        
+                                        <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                                            <div
+                                                style="background-color: #3a76ed; color: white; padding: 0.4rem; border-radius: 50%; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; min-width: 2rem; height: 2rem;">
+                                                3
+                                            </div>
+                                            <div>
+                                                <p style="margin: 0; line-height: 1.4;"><strong>Multi-task Training:</strong> To develop general and transferable logical reasoning, the training incorporates multi-task methods like Mix-training RL and Multi-stage RL, combining diverse puzzle types (Enigmata, ARC-AGI) with challenging mathematical problems (AIME) while maintaining a balanced ratio.</p>
+                                            </div>
+                                        </div>                                
+                                </div>
+                            </div>
+                            </div>
+        
+                            
+                            <div class="content">
+                                <h4>👀 Experimental Results</h4>
+                                <div class="content">
+                                    <p>Our model, specifically the 32B parameter version, significantly outperforms most public models on Enigmata-Eval and ARC-AGI, showcasing enhanced general logical reasoning. This success stems from effective rejection fine-tuning (RFT) and multi-task RL strategies, which improve generalization while preserving existing math reasoning abilities.</p>
+                                </div>
+                                <figure>
+                                    <img src="./assets/main_results_1.png" alt="A descriptive alt text for your image" style="width: 600px;">
+                                    <figcaption style="color: gray;">Performance of reasoning, generic, and our trained LLMs on reasoning benchmarks</figcaption>
+                                  </figure>
+                                
+                                  <div class="content">
+                                    <p>On Enigmata-Eval, our Qwen2.5-32B-Enigmata model excels in Crypto, Arithmetic, and Logic tasks, indicating strong rule-based reasoning. It also performs competitively in search tasks, though spatial and sequential categories remain challenging.</p>
+                                </div>
+        
+                                  <figure>
+                                    <img src="./assets/main_results2.png" alt="A descriptive alt text for your image" style="width: 600px;">
+                                    <figcaption style="color: gray;">Performance of reasoning LLMs, generic LLMs, and our trained LLMs on Enigmata-Eval</figcaption>
+                                  </figure>
+        
+                            </div>
+        
+                            
+                            <div class="content">
+                                <h4>🌟 Generalization with Scaling: Free Lunch from Enigmata </h4>
+                            <div class="content">
+                                <p>Incorporating the <strong>Enigmata-Data</strong> synthetic puzzle dataset into large-scale model training, e.g., <a href="https://arxiv.org/abs/2504.13914">Seed1.5-Thinking</a>, surprisingly improving performance on challenging benchmarks like AIME and GPQA Diamond. This demonstrates an unexpected <strong>generalization benefit</strong> for advanced reasoning models.</p>
+                            </div>
+        
+                              <figure>
+                                <img src="./assets/seed_thinking.png" alt="A descriptive alt text for your image" style="width: 600px;">
+                                <figcaption style="color: gray;">Results on benchmarks for general reasoning capabilities</figcaption>
+                              </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section" id="citation">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">📝 Citation</h2>
+                            <div class="content">
+                                <p>If you find this work useful, please cite our paper:</p>
+                                <pre><code class="latex">
+            @article{gong2025steering,
+                title={Steering Protein Family Design through Profile Bayesian Flow},
+                author={Gong, Jingjing and Pei, Yu and Long, Siyu and Song, Yuxuan and Zhang, Zhe and Huang, Wenhao and Cao, Ziyao and Zhang, Shuyi and Zhou, Hao and Ma, Wei-Ying},
+                journal={arXiv preprint arXiv:2502.07671},
+                year={2025}
+            }
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+          
+          <!-- … other sections … -->
+        </div>
+  </body>
+
+
+
+
+</html>

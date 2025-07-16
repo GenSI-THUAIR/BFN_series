@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description"
+        content="GeoBFN: Unified Generative Modeling of 3D Molecules via Bayesian Flow Networks" />
+    <meta name="keywords, Drug Design, Molecule Generation, Deep Learning, Computational Biology"
+        content="GeoBFN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GeoBFN: Unified Generative Modeling of 3D Molecules via Bayesian Flow Networks</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/bulma.min.css" />
+    <link rel="stylesheet" href="./css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./css/fontawesome.all.min.css" />
+    <!-- <link rel="stylesheet" href="./css/fontawesome_6_7_2.all.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/enhanced-styles.css" />
+    <link rel="stylesheet" href="./css/final-enhancements.css" />
+    <link rel="stylesheet" href="./css/navbar-fix.css" />
+    <link rel="stylesheet" href="./css/navbar-alignment-fix.css" />
+    <link rel="stylesheet" href="./css/overlap-fix.css" />
+    <link rel="stylesheet" href="./css/spacing-fix.css" />
+    <link rel="stylesheet" href="./css/author-affiliation-styles.css" />
+    <link rel="icon" href="./assets/gensi_logo_black_topdown.png" type="image/png" />
+    <!-- add page icon at 64 x 64-->
+    <!-- <link rel="icon" type="image/png" href="./assets/re.png" sizes="256x256" /> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/fontawesome.all.min.js"></script>
+    <script src="./js/bulma-carousel.min.js"></script>
+    <script src="./js/bulma-slider.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/enhanced-animations.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .menu {
+          position: fixed;
+          top: 20rem;
+          left: 8rem;
+          width: 10rem;
+        }
+        .main-content {
+          margin-left: 10rem;
+          padding-top: 20rem;
+        }
+    </style>
+
+    <style>
+        @media screen and (max-width: 768px) {
+        .menu {
+            display: none;
+        }
+        }
+    </style>
+</head>
+
+
+    
+
+
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="has-text-centered">
+                    <h1 class="publication-title">
+                        <em class="dnerf">GeoBFN</em>: Unified Generative Modeling of 3D Molecules via Bayesian Flow Networks
+                    </h1>
+                    <div class="publication-authors">
+                        <span class="author-block"><a href="songyuxuan@air.tsinghua.edu">Yuxuan Song</a><sup>1,†</sup></span>
+                        <span class="author-block"><a href="gongjingjing@air.tsinghua.edu">Jingjing Gong</a><sup>1,†</sup></span>
+                        <span class="author-block"><a >Yanru Qu</a><sup>2</sup></span>
+                        <span class="author-block"><a href="zhouhao@air.tsinghua.edu.cn">Hao Zhou</a><sup>1,*</sup></span><br>
+                        <span class="author-block"><a >Mingyue Zheng</a><sup>3</sup></span>
+                        <span class="author-block"><a >Jingjing Liu</a><sup>1</sup></span>
+                        <span class="author-block"><a href="maweiying@air.tsinghua.edu.cn">Wei-Ying Ma</a><sup>1</sup></span>
+                    </div>
+                    <div class="publication-affiliations">
+                        <span class="affiliation-block"><sup>1</sup>Institute of AI Industry Research (AIR), Tsinghua University</span><br>
+                        <span class="affiliation-block"><sup>2</sup>University of Illinois Urbana-Champaign</span>
+                        <span class="affiliation-block"><sup>3</sup>Shanghai Institute of Materia Medica, Chinese Academy of Sciences</span><br>
+                        <div class="affiliation-note">†Equal Contribution</div>
+                        <div class="affiliation-note">Contact: <a href="zhouhao@air.tsinghua.edu.cn">zhouhao@air.tsinghua.edu.cn</a></div>
+                    </div>
+                    <div class="publication-links">
+                        <span class="link-block">
+                            <a href="https://arxiv.org/pdf/2403.15441" class="external-link button is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                            </a>
+                        </span>
+                        <span class="link-block">
+                            <a href="https://github.com/AlgoMole/GeoBFN" class="external-link button is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-database"></i>
+                                </span>
+                                <span>Code</span>
+                            </a>
+                        </span>
+                        <!-- <span class="link-block">
+                            <a href="https://huggingface.co/BytedTsinghua-SIA/Enigmata-Qwen2.5-32B" class="external-link button is-dark">
+                                <span class="icon">
+                                    🤗
+                                </span>
+                                <span>Model</span>
+                            </a>
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="menu" >
+        <p class="menu-label">GeoBFN</p>
+        <ul class="menu-list">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#analysis">Analysis</a></li>
+            <li><a href="#citation">Citation</a></li>
+        </ul>
+    </aside>
+
+    
+    
+
+    
+    <div class="container">
+        
+        <!-- Main content -->
+
+        
+
+        
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="section navigation">
+                <div class="container">    
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#https://www.gensi-thuair.com/">
+                            <img src="./assets/gensi_new_logo.png"/>
+                        </a>
+                        <!-- <img src="./assets/gensi_new_logo.png"/> -->
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="index.html">Home</a>
+                            <a class="navbar-item" href="GeoBFN.html">GeoBFN</a>
+                            <a class="navbar-item" href="MolCRAFT-Series.html">MolCRAFT-Series</a>
+                            <a class="navbar-item" href="CrysBFN.html">CrysBFN</a>
+                            <a class="navbar-item" href="ProfileBFN.html">ProfileBFN</a>
+                            <a class="navbar-item" href="GraphBFN.html">GraphBFN</a>
+                            <!-- <a class="navbar-item" href="Others.html">Others</a> -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+        
+            <section class="section project-section" id="introduction">
+                <div class="container">
+                    <h2 class="title is-3">Introduction</h2>
+                <div class="columns is-centered">
+                    <div class="column">
+                    <div class="content">
+                        <img src="./assets/GeoBFN/geobfn_framework.png">
+                        <p>
+                        <strong>GeoBFN architecture</strong> 
+                        </p>
+                    </div>
+                    </div>
+            
+                    <div class="column">
+                    <div class="content">
+                        <p>
+                            In this work, we propose <strong>Geometric Bayesian Flow Networks (GeoBFN)</strong> to model 3D molecule
+                            geometry in a principally different way. Bayesian Flow Networks Graves et al. (2023) (BFN) is
+                            a novel generative model developed quite recently. Taking a unique approach by incorporating
+                            Bayesian inference to modify the parameters of a collection of independent distributions, brings a
+                            fresh perspective to geometric generative modeling. Firstly, <strong>GeoBFN</strong> uses a unified probabilistic
+                            modeling formulation for different modalities in the molecule geometry. Secondly, regarding the
+                            variable of 3D atom coordinates, the input variance for BFNs is considerably lower than DMs,
+                            leading to better compatibility with the inherent noise sensitivity. Further, we bring the geometry
+                            symmetries into the Bayesian update procedure through an equivariant inter-dependency modeling
+                            module. We also demonstrate that the density function of implied generative distribution is SE-(3)
+                            invariant and the generative process of iterative updating is roto-translational equivariant. Thirdly,
+                            with BFN’s powerful probabilistic modeling capacity, 3D molecule geometry representation can
+                            be further optimized into a representation with only two similar modalities: discretised charge and
+                            continuous atom coordinates. The mode-redundancy issue on discretised variable in the original
+                            BFNs is fixed by an early mode-seeking sampling strategy in <strong>GeoBFN</strong>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+
+          
+
+
+            <section class="section" id="results">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">⚖️ Results: Molecular Design</h2>
+                            <div class="content">
+                                <img src="./assets/GeoBFN/geobfn_main_result.png" alt="MY ALT TEXT"/>
+                                <p>
+                                    In both the <strong>QM9</strong> and <strong>GEOM-DRUG</strong> datasets, <strong>GeoBFN</strong> achieves a new state-of-the-art performance
+                                    regarding both the quality and diversity of the generated molecules which demonstrates the huge
+                                    potential of GeoBFN on geometry generative modeling</p>
+
+                                <figure class="image is-inline-block" style="max-width: 80%;">
+                                <img src="./assets/GeoBFN/geobfn_conditional.png" alt="MY ALT TEXT"/>
+                                </figure>
+
+                                <p>
+                                    <strong>GeoBFN</strong> consistently outperforms other baseline models by an obvious margin in all conditional generation tasks. This clearly highlights
+                                    the effectiveness and generalization capability of the proposed methods. </p>
+                                
+                                <figure class="image is-inline-block" style="max-width: 80%;">
+                                <img src="./assets/GeoBFN/geobfn_ablation.png" alt="MY ALT TEXT"/>
+                                </figure>   
+                                
+                                <p>
+                                    <strong>GeoBFN</strong> could get superior performance compared to several advanced models with only 50
+                                    steps during sampling which brings 20× speed-up during sampling due to the benefit of low variance
+                                    parameter space. </p>
+                 
+        
+                        
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            
+            
+            <section class="section project-section" id="analysis">
+                <div class="container">
+                    <h2 class="title is-3">Analysis</h2>
+                <div class="columns is-centered">
+                    <div class="column">
+                    <div class="content">
+                        <img src="./assets/GeoBFN/geobfn_analysis1.png">
+                        <p>
+                            with the sampling steps increasing from 50 to 4600, the molecule stability could be further boosted to approach the upper bound, e.g., 94.25% with 4000 steps.
+                        </p>
+                    </div>
+                    </div>
+
+
+                    <div class="column">
+                        <div class="content">
+                            <img src="./assets/GeoBFN/geobfn_analysis2.png">
+                            <p>
+                                The updated distribution is unbiased towards the training objective and also reduce the variance during generation
+                            </p>
+                        </div>
+                        </div>
+            
+                </div>
+                </div>
+            </section>
+
+
+            <section class="section" id="citation">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">📝 Citation</h2>
+                            <div class="content">
+                                <p>If you find this work useful, please cite our paper:</p>
+                                <pre><code class="latex">
+        @article{song2024unified,
+            title={Unified Generative Modeling of 3D Molecules via Bayesian Flow Networks},
+            author={Song, Yuxuan and Gong, Jingjing and Qu, Yanru and Zhou, Hao and Zheng, Mingyue and Liu, Jingjing and Ma, Wei-Ying},
+            journal={arXiv preprint arXiv:2403.15441},
+            year={2024}
+        }
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          
+          <!-- … other sections … -->
+        </div>
+  </body>
+
+
+
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description"
+        content="GenSI Project: Series of Bayesian Flow Networks(BFNs)" />
+    <meta name="keywords, Bayesian Flow Networks, Molecular Generation, Graph Generation, Structure-Based Drug Design, Crystal Generation, Protein Generation"
+        content="GenSI Project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GenSI Project: Series of Bayesian Flow Networks(BFNs)</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/bulma.min.css" />
+    <link rel="stylesheet" href="./css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./css/fontawesome.all.min.css" />
+    <!-- <link rel="stylesheet" href="./css/fontawesome_6_7_2.all.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/enhanced-styles.css" />
+    <link rel="stylesheet" href="./css/final-enhancements.css" />
+    <link rel="stylesheet" href="./css/navbar-fix.css" />
+    <link rel="stylesheet" href="./css/navbar-alignment-fix.css" />
+    <link rel="stylesheet" href="./css/overlap-fix.css" />
+    <link rel="stylesheet" href="./css/spacing-fix.css" />
+    <link rel="stylesheet" href="./css/author-affiliation-styles.css" />
+    <link rel="icon" href="./assets/gensi_logo_black_topdown.png" type="image/png" />
+    <!-- add page icon at 64 x 64-->
+    <!-- <link rel="icon" type="image/png" href="./assets/re.png" sizes="256x256" /> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/fontawesome.all.min.js"></script>
+    <script src="./js/bulma-carousel.min.js"></script>
+    <script src="./js/bulma-slider.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/enhanced-animations.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .menu {
+          position: fixed;
+          top: 20rem;
+          left: 8rem;
+          width: 10rem;
+        }
+        .main-content {
+          margin-left: 10rem;
+          padding-top: 20rem;
+        }
+        .hero {
+            width: 80rem;
+        }
+    </style>
+
+    <style>
+        @media screen and (max-width: 768px) {
+        .menu {
+            display: none;
+        }
+        }
+    </style>
+</head>
+
+
+    
+
+
+
+<body>
+
+
+    <!-- Sidebar -->
+    <!-- <aside class="menu" >
+        <p class="menu-label">Enigmata</p>
+        <ul class="menu-list">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#eval">Evaluation</a></li>
+            <li><a href="#model">Model</a></li>
+            <li><a href="#citation">Citation</a></li>
+        </ul>
+    </aside> -->
+
+    
+    
+
+    
+    <div class="container">
+
+        
+        
+        
+        <!-- Main content -->
+
+        
+
+        
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="section navigation">
+                <div class="container">    
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#https://www.gensi-thuair.com/">
+                            <img src="./assets/gensi_new_logo.png"/>
+                        </a>
+                        <!-- <img src="./assets/gensi_new_logo.png"/> -->
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="index.html">Home</a>
+                            <a class="navbar-item" href="GeoBFN.html">GeoBFN</a>
+                            <a class="navbar-item" href="MolCRAFT-Series.html">MolCRAFT-Series</a>
+                            <a class="navbar-item" href="CrysBFN.html">CrysBFN</a>
+                            <a class="navbar-item" href="ProfileBFN.html">ProfileBFN</a>
+                            <a class="navbar-item" href="GraphBFN.html">GraphBFN</a>
+                            <!-- <a class="navbar-item" href="Others.html">Others</a> -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+            <section class="section" id="bfn">
+                <div class="container">
+                
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">Series of Bayesian Flow Networks (BFN)</h2>
+
+                        </div>
+                    </div>
+                    
+
+                    <style>
+                        /* 简单的 loading spinner */
+                        .spinner {
+                          border: 4px solid #f3f3f3;
+                          border-top: 4px solid #3273dc; /* Bulma 主色 */
+                          border-radius: 50%;
+                          width: 40px;
+                          height: 40px;
+                          animation: spin 1s linear infinite;
+                          margin: auto;
+                          margin-top: 2rem;
+                        }
+                        
+                        @keyframes spin {
+                          0% { transform: rotate(0deg); }
+                          100% { transform: rotate(360deg); }
+                        }
+                        
+                        /* 视频初始隐藏 */
+                        #video-wrapper video {
+                          display: none;
+                        }
+                        </style>
+                        
+                        <div id="video-wrapper" class="has-text-centered">
+                          <!-- Loading 动画 -->
+                          <div id="spinner" class="spinner"></div>
+                        
+                          <!-- 视频内容 -->
+                          <video id="myVideo" autoplay loop muted playsinline>
+                            <source src="./assets/BFN_series/freecompress-process.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                        
+                        <script>
+                        const video = document.getElementById('myVideo');
+                        const spinner = document.getElementById('spinner');
+                        
+                        // 当视频可以播放时，隐藏 spinner，显示视频
+                        video.addEventListener('canplay', () => {
+                          spinner.style.display = 'none';
+                          video.style.display = 'block';
+                        });
+                        </script>
+                        
+            </section>
+          
+
+
+            <section class="section" id="introduction">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">About Us</h2>
+                            <div class="content">
+                                <p>This is GenSI Lab, the Generative Symbolic Intelligence Group affiliated with Tsinghua AIR, with some members also associated with the Shanghai AI Lab. Our long-term goal is to achieve AGI by creating AI scientists.</p>
+        
+                                <p>The pages shows a research series of Bayesian Flow Network(BFN) done by GenSI, focusing on both theoretical innovations as well as practical applications. </p>
+        
+                 
+        
+                        
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="timeline">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">Publication Timeline</h2>
+                            <div class="timeline is-centered">
+                                <!-- Timeline entry: ICLR 2024 Oral -->
+                                <div class="timeline-item is-primary">
+                                    <div class="timeline-marker is-primary"></div>
+                                    <div class="timeline-content">
+                                        <p class="heading">April 2024</p>
+                                        <p><strong>ICLR 2024 (Oral)</strong>  <a href="https://arxiv.org/abs/2403.15441">GeoBFN: Unified Generative Modeling of 3D Molecules via Bayesian Flow Networks</a></p>
+                                    </div>
+                                </div>
+
+                                
+            
+                                <!-- Timeline entry: ICML 2024 Poster -->
+                                <div class="timeline-item is-info">
+                                    <div class="timeline-marker is-info"></div>
+                                    <div class="timeline-content">
+                                        <p class="heading">July 2024</p>
+                                        <p><strong>ICML 2024 (Poster)</strong> <a href="https://arxiv.org/abs/2404.12141">MolCRAFT: Structure-Based Drug Design in Parameter Space</a></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="timeline-item is-info">
+                                    <div class="timeline-marker is-info"></div>
+                                    <div class="timeline-content">
+                                        <p class="heading">April 2025</p>
+                                        <p><strong>ICLR 2025 (Spotlight)</strong> <a href="https://arxiv.org/abs/2502.02016">CrysBFN: A Periodic Bayesian Flow for Material Generation</a></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="timeline-item is-info">
+                                    <div class="timeline-marker is-info"></div>
+                                    <div class="timeline-content">
+                                        <p class="heading">April 2025</p>
+                                        <p><strong>ICLR 2025 (Oral)</strong> <a href="https://arxiv.org/abs/2502.07671">ProfileBFN: Steering Protein Family Design through Profile Bayesian Flow</a></p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="timeline-item is-info">
+                                    <div class="timeline-marker is-info"></div>
+                                    <div class="timeline-content">
+                                        <p class="heading">July 2025</p>
+                                        <p><strong>ICML 2025 (Poster)</strong> <a href="https://arxiv.org/html/2505.07286v1">MolPilot: Piloting Structure-Based Drug Design via Modality-Specific Optimal Schedule</a></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="timeline-item is-info">
+                                    <div class="timeline-marker is-info"></div>
+                                    <div class="timeline-content">
+                                        <p class="heading">July 2025</p>
+                                        <p><strong>ICML 2025 (Poster)</strong> <a href="https://arxiv.org/abs/2411.13280">MolJO: Empower Structure-Based Molecule Optimization with Gradient Guided Bayesian Flow Networks</a></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="timeline-item is-info">
+                                    <div class="timeline-marker is-info"></div>
+                                    <div class="timeline-content">
+                                        <p class="heading">July 2025</p>
+                                        <p><strong>ICML 2025 (Poster)</strong> <a href="https://github.com/AlgoMole/GraphBFN">GraphBFN: Smooth Interpolation for Improved Discrete Graph Generative Models</a></p>
+                                    </div>
+                                </div>
+            
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+<!--             
+            <section class="section" id="model">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">🤖 Model</h2>
+                            <div class="content">
+                                <p>...</p>
+                            </div>
+                            <div class="content">
+                                <div
+                                style="background-color: #f8fafc; border-radius: 12px; border-left: 6px solid #3a76ed; padding: 1.2rem; margin-bottom: 1.5rem;">
+                                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                                        <div style="display: flex; align-items: flex-start; gap: 0.8rem;"> 
+                                            <div
+                                                style="background-color: #3a76ed; color: white; padding: 0.4rem; border-radius: 50%; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; min-width: 2rem; height: 2rem;">
+                                                1
+                                            </div>
+                                            <div>
+                                                <p style="margin: 0; line-height: 1.4;"><strong>Rejection Fine-tuning:</strong>
+                                                    ...</p>
+                                            </div>
+                                        </div>
+                                
+                                        <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                                            <div
+                                                style="background-color: #3a76ed; color: white; padding: 0.4rem; border-radius: 50%; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; min-width: 2rem; height: 2rem;">
+                                                2
+                                            </div>
+                                            <div>
+                                            <p style="margin: 0; line-height: 1.4;">...</p>
+                                            </div>
+                                        </div>
+        
+                                        <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                                            <div
+                                                style="background-color: #3a76ed; color: white; padding: 0.4rem; border-radius: 50%; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; min-width: 2rem; height: 2rem;">
+                                                3
+                                            </div>
+                                            <div>
+                                                <p style="margin: 0; line-height: 1.4;">...</p>
+                                            </div>
+                                        </div>                                
+                                </div>
+                            </div>
+                            </div>
+        
+
+        
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+
+            <!-- <section class="section" id="citation">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-10">
+                            <h2 class="title is-3">📝 Citation</h2>
+                            <div class="content">
+                                <p>If you find this work useful, please cite our paper:</p>
+                                <pre><code class="latex">
+        ...
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+          
+          <!-- … other sections … -->
+        </div>
+  </body>
+
+
+
+
+</html>
