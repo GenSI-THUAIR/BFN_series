@@ -37,25 +37,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        .menu {
-          position: fixed;
-          top: 20rem;
-          left: 6rem;
-          width: 10rem;
-        }
-        .main-content {
-          margin-left: 10rem;
-          padding-top: 20rem;
-        }
-    </style>
+    .menu {
+        position: fixed;
+        top: 20rem;
+        left: 5rem;
+        width: 10rem;
+    }
+    
+    .main-content {
+        margin-left: 15rem;
+        padding-top: 20rem;
+    }
+    
+    .hero {
+        width: 80rem;
+    }
 
-    <style>
-      @media screen and (max-width: 768px) {
-      .menu {
-          display: none;
-      }
-      }
-    </style>
+    /* 移动端适配 */
+    @media screen and (max-width: 768px) {
+        .menu {
+            display: none;
+        }
+        /* 关键修改：移除主内容的左侧间距 */
+        .main-content {
+            margin-left: 5rem;
+            padding-top: 2rem; /* 移动端减少顶部间距 */
+        }
+
+    }
+</style>
 </head>
 
 
@@ -171,7 +181,7 @@
     
 
     
-    <div class="container">
+    <div class="main-content">
         
         <!-- Main content -->
 
